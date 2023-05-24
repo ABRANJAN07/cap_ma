@@ -1,0 +1,37 @@
+{
+    "name": "cap_ma",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^6",
+        "@sap/xsenv": "^3.4.0",
+        "@sap/xssec": "^3",
+        "express": "^4",
+        "hdb": "^0.19.0",
+        "passport": "^0"
+    },
+    "devDependencies": {
+        "@sap/ux-specification": "^1.108.5",
+        "rimraf": "^3.0.2",
+        "sqlite3": "^5"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-cap_managed": "cds watch --open cap_managed/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy cap_ma --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "requires": {
+            "db": "hana-cloud",
+            "auth": "xsuaa"
+        }
+    },
+    "sapux": [
+        "app/cap_managed"
+    ]
+}
