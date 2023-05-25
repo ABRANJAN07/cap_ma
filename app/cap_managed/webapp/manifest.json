@@ -1,9 +1,5 @@
 {
   "_version": "1.49.0",
-  "sap.cloud": {
-    "public": true,
-    "service": "cloud.service"
-  },
   "sap.app": {
     "id": "capmanaged",
     "type": "application",
@@ -160,5 +156,9 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "cloud.service"
   }
 }
