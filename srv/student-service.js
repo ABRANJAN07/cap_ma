@@ -12,6 +12,20 @@ module.exports = (srv) => {
     console.log("Students and Courses: ", Courses);
   });
 
+  srv.on('READ', 'Courses', req => {
+    const user = {
+        id : req.user.id,
+        tenant : req.user.tenant,
+        _roles: req.user._roles,
+        role_check : req.user.is('admin'),
+        attr : req.user.attr.Country,
+        level : req.user.attr.level,
+        familyName : req.user.attr.familyName,
+        user: req.user.attr.language
+    }
+    console.log("User: ", user);
+  });
+
   srv.before('CREATE', 'Students', async (req) => {
 
     //Get transaction of the request

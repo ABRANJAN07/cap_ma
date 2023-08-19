@@ -7,7 +7,18 @@ service StudentService {
   @readonly entity Courses as projection on school.Courses;
  
   entity Enrollments as projection on school.Enrollments;
-  entity Students as projection on school.Students;
+
+  @requires: 'Admin'
+  entity Students @(restrict: [
+    { grant: '*',
+      to: 'Admin',
+      where: 'country = $user.Country or $user.country is null' }
+  ]) as projection on school.Students {
+    ID,
+    name,
+    birthDate,
+    country,
+  };
   
   @readonly entity ClassRooms as projection on school.Classrooms;
   @readonly entity Classes as projection on school.Classes{

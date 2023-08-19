@@ -1,7 +1,7 @@
 using { school, sap.common } from '../db/schema';
 
 
-service AdminService  @(requires:'admin'){
+service AdminService {
    entity Students as projection on school.Students{
    	*,
    	enrollments: redirected to Enrollments,

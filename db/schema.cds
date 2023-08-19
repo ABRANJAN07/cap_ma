@@ -6,6 +6,7 @@ entity Students: managed {
 	key ID: Integer;
 	name  : String;
 	birthDate: Date;
+	country: String;
 	enrollments: Association to many Enrollments on enrollments.student = $self;
 }
 

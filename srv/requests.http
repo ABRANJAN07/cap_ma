@@ -1,0 +1,15 @@
+### Read students
+
+GET http://localhost:4004/student/Students
+
+### Read Metadata
+
+GET http://localhost:4004/student/$metadata
+
+### Read Admin
+
+GET http://localhost:4004/admin/$metadata
+
+### Read Admin Students
+
+GET http://localhost:4004/admin/Students

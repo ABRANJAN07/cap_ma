@@ -3,19 +3,39 @@
   "tenant-mode": "dedicated",
   "scopes": [
     {
-      "name": "$XSAPPNAME.admin",
-      "description": "admin"
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admin"
     }
   ],
-  "attributes": [],
+  "attributes": [
+    {
+      "name": "country",
+      "description": "country",
+      "valueType": "s",
+      "valueRequired": false
+    }
+  ],
   "role-templates": [
     {
-      "name": "admin",
+      "name": "Admin",
       "description": "generated",
       "scope-references": [
-        "$XSAPPNAME.admin"
+        "$XSAPPNAME.Admin"
       ],
-      "attribute-references": []
+      "attribute-references": [
+        {
+          "name": "country"
+        }
+      ]
+    },
+    {
+      "name": "userattributes",
+      "description": "generated",
+      "default-role-name": "Attributes of a User",
+      "scope-references": [],
+      "attribute-references": [
+        "country"
+      ]
     }
   ],
   "oauth2-configuration": {
